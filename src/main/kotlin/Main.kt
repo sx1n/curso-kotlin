@@ -1,38 +1,27 @@
-import kotlin.math.PI
-
 fun main() {
-   var nome = "Samuel Laurindo de Lima"
-
-   parseYear(2)
-   println(stringLength(nome))
-   println(parseMiles(1.50))
-   println(calculateCube(3))
-   replaceAForX(nome)
-
+    println(bonus("Engenheiro de software", 2))
 }
 
-fun parseYear(years: Int) {
-   val monthsInAYear: Byte = 12
-   val daysInAYear: Short = 365
-   val hoursInAYear: Short = 8_760
-   val minutesInAYear = 525_960
-   val secondsInAYear = 31_536_000
+fun bonus(cargo: String, experiencia: Int): Float {
+    var bonus = 0f
 
-   println("$years equivalem a:")
-   println("${years * monthsInAYear} meses")
-   println("${years * daysInAYear} dias")
-   println("${years * hoursInAYear} horas")
-   println("${years * minutesInAYear} minutos")
-   println("${years * secondsInAYear} segundos")
-}
+    if (cargo == "Gerente") {
+        if (experiencia < 2) {
+            bonus = 2000f
+        } else {
+            bonus = 3000f
+        }
+    } else if (cargo == "Coordenador") {
+        if (experiencia < 1) {
+            bonus = 1500f
+        } else {
+            bonus = 1800f
+        }
+    } else if (cargo == "Engenheiro de software") {
+        bonus = 1000f
+    } else if (cargo == "Estágiario") {
+        bonus = 500f
+    }
 
-fun stringLength(str: String): Int = str.length
-
-fun calculateCube (n: Int): Int = (n * n * n)
-
-fun parseMiles(miles: Double): Double = (miles * 1.609)
-
-fun replaceAForX(str: String) {
-   val newStr = str.replace("a", "x", true).uppercase()
-   println(newStr)
+    return bonus
 }
