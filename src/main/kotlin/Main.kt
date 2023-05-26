@@ -1,25 +1,57 @@
 fun main() {
+    exercise1()
+    println()
 
-    var i = 0
-    println("==== break ====")
-    while(i < 10000) {
+    exercise2()
+    println()
 
-        println("$i")
+    exercise3()
+    println()
 
-        if(i == 8) {
-            break
-        }
+    exercise4()
+    println()
 
-        i++
+    exercise5()
+}
+
+fun exercise1() {
+    for (number in 1..50) {
+        print("$number ")
     }
+}
 
-    val name = "Ana Banana"
-    println("\n==== continue ====")
-    for(char in name) {
-        if (char.lowercase() == "a") {
+fun exercise2() {
+    for (number in 50 downTo 1) {
+        print("$number ")
+    }
+}
+
+fun exercise3() {
+    for (number in 1..50) {
+        if (number % 5 == 0) {
             continue
         }
 
-        print(char)
+        print("$number ")
+
+    }
+}
+
+fun exercise4() {
+    var x = 0
+    for (i in 0..500) {
+        x += i
+        println("Numero: $i, Soma Total: $x")
+    }
+}
+
+fun exercise5() {
+    print("Digite o numero do tamanho da escada: ")
+    val x = readln().toInt()
+
+    var s = ""
+    for (i in 1..x) {
+        s += "#"
+        println(s)
     }
 }
