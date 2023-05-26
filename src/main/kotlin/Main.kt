@@ -1,10 +1,8 @@
 fun main() {
 
-    var i = 0
-
-    while (true) {
-        println("Eu sou o while")
-        ++i
-        if (i > 1_000_000) break
-    }
+    do {
+        print("Qual é seu nome? ")
+        var nome = readln()
+        println()
+    } while (nome.isEmpty())
 }
