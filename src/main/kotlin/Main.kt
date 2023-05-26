@@ -1,14 +1,12 @@
 fun main() {
-    try {
-        var s: String? = null // o ? permite o uso de nulos
-        println(s!!.length) // !! não protege de valores nulos
-    } catch (e: NullPointerException) {
-        println("Variável nula")
-    } catch (e: Exception) {
-        println("Capturando qualquer tipo de exceção")
-    } finally {
-        // ... codigo
-        // Esse bloco de codigo sempre vai ser executado, independente de qualquer erro ou sucesso
-        // Bloco Opcional
-    }
+    var str: String? = null
+
+    // Operador Elvis
+    // OBS: NÃO É UM OPERADOR TERNARIO
+    str?: println("String nula") // a função built-in só será executada se str for nulo
+
+    // Kotlin não possui operador ternario, but
+    val idade = 18
+    val str2 = if (idade <= 18) "Maior de idade" else "Menor de idade"
+    println(str2)
 }
