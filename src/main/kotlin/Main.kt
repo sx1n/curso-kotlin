@@ -1,12 +1,20 @@
 fun main() {
     var str: String? = null
 
-    // Operador Elvis
-    // OBS: NÃO É UM OPERADOR TERNARIO
-    str?: println("String nula") // a função built-in só será executada se str for nulo
+    // t
+    if (str != null) {
+        str.lowercase()
+        str.length
+    }
 
-    // Kotlin não possui operador ternario, but
-    val idade = 18
-    val str2 = if (idade <= 18) "Maior de idade" else "Menor de idade"
-    println(str2)
+    // `.let {}` só será executado se `str` for `null`
+    // dentro desse escopo o `str` pode ser referenciado como `it`
+    // Lembrando que o escopo aqui dentro é de função
+    str?.let {
+        str = "AAA"
+        it.lowercase()
+        it.length
+    }
+
+    println(str)
 }
