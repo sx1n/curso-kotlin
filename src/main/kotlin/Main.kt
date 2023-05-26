@@ -8,50 +8,63 @@ fun main() {
     exercise3()
     println()
 
-    exercise4()
+    println(exercise4("xyyyyyyy"))
     println()
-
-    exercise5()
 }
 
 fun exercise1() {
-    for (number in 1..50) {
-        print("$number ")
+    val waterTankLimit = 2_000
+
+    var amountOfWaterInTank = 7
+    var counter = 0
+
+    while (waterTankLimit > amountOfWaterInTank) {
+        amountOfWaterInTank = 7 * counter
+        counter++
     }
+
+    println("The maximum amount of water balloons that the Water Box can hold is ${(amountOfWaterInTank / 7) - 1}")
+
 }
 
 fun exercise2() {
-    for (number in 50 downTo 1) {
-        print("$number ")
+    for (number in 1 until 50) {
+        if (number % 5 == 0 && number % 3 == 0) {
+            println("FizzBuzz: $number")
+        } else if (number % 3 == 0) {
+            println("Buzz: $number")
+        } else if (number % 5 == 0) {
+            println("Fizz: $number")
+        }
     }
 }
 
 fun exercise3() {
-    for (number in 1..50) {
-        if (number % 5 == 0) {
-            continue
+    var str: String = ""
+
+    while (str.isEmpty()) {
+        print("Digite uma frase: ")
+        str = readln()
+    }
+
+    println("Frase invertida: ${str.reversed()}")
+}
+
+fun exercise4(str: String): Boolean {
+    var quantityOfX = 0
+    var quantityOfY = 0
+
+    var i = 0
+    while (i < str.length) {
+
+        if (str[i] == 'x') {
+            quantityOfX += 1
+        } else if (str[i] == 'y') {
+            quantityOfY += 1
         }
 
-        print("$number ")
-
+        i++
     }
-}
 
-fun exercise4() {
-    var x = 0
-    for (i in 0..500) {
-        x += i
-        println("Numero: $i, Soma Total: $x")
-    }
-}
-
-fun exercise5() {
-    print("Digite o numero do tamanho da escada: ")
-    val x = readln().toInt()
-
-    var s = ""
-    for (i in 1..x) {
-        s += "#"
-        println(s)
-    }
+    return quantityOfX == quantityOfY
 }
