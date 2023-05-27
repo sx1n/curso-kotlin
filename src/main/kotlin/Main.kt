@@ -1,11 +1,18 @@
-fun main() {
-    endereco("street", "city", "rj", "5000")
+import kotlin.reflect.typeOf
 
-    // Também é possível trocar a ordem dos argumentos, mas terá que nomear todos eles
-    endereco(cidade = "city", rua = "street", estado = "rj", cep = "5000")
+fun main() {
+    println(media(1f, 2f, 3f, 44.5f, 8f))
 }
 
-// `numero` será 0 se não for passado como argumento
-fun endereco(rua: String, cidade: String, estado: String, cep: String, numero: Int = 0) {
+fun media(vararg notas: Float): Float {
+    var soma = 0f
 
+    // println("$notas \ntipo de notas: ${notas::class.java.simpleName}")
+
+    // notas virá como um Float[]
+    for (nota in notas) {
+        soma += nota
+    }
+
+    return soma / notas.size
 }
