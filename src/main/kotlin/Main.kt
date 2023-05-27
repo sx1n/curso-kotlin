@@ -1,16 +1,16 @@
 fun main() {
-    println(media(1f, 2f, 3f, 44.5f, 8f, "", false))
+    valores(false)
+
+    update()
 }
 
-fun <T, J> media(abc: J, vararg notas: T): Float {
-    var soma = 0f
+// Any pode ser qualquer tipo do Kotlin, tem o mesmo comportamento de um Generic
+// Unit é semelhante ao void do Java e funções sem retorno são inferidas como Unit
+fun valores(arg: Any): Unit {
 
-    for (nota in notas) {
-        if (nota is Float) {
-            soma += nota
-        }
-    }
+}
 
-    // A média retornada não é real, pois tem valores que não são numeros de fato
-    return soma / notas.size
+// Dificil de explicar, mas é quase a mesma ideia de interface
+fun update(): Nothing {
+    TODO("Não foi implementado")
 }
