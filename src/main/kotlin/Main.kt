@@ -1,20 +1,11 @@
 fun main() {
-    var str: String? = null
+    endereco("street", "city", "rj", "5000")
 
-    // t
-    if (str != null) {
-        str.lowercase()
-        str.length
-    }
+    // Também é possível trocar a ordem dos argumentos, mas terá que nomear todos eles
+    endereco(cidade = "city", rua = "street", estado = "rj", cep = "5000")
+}
 
-    // `.let {}` só será executado se `str` for `null`
-    // dentro desse escopo o `str` pode ser referenciado como `it`
-    // Lembrando que o escopo aqui dentro é de função
-    str?.let {
-        str = "AAA"
-        it.lowercase()
-        it.length
-    }
+// `numero` será 0 se não for passado como argumento
+fun endereco(rua: String, cidade: String, estado: String, cep: String, numero: Int = 0) {
 
-    println(str)
 }
