@@ -1,19 +1,24 @@
-class Pessoa(var nome: String, var anoDeNascimento: Int) {
-
-    var doc: String? = null
-
-    // Construtor Secundario que chama o Primario
-    constructor(nome: String, anoDeNascimento: Int, doc: String): this(nome, anoDeNascimento) {
-        this.doc = doc
-    }
-
-    fun comer() {}
-
-    fun falar() {}
+class Animal(var especie: String) {
+    // Cada Atributo terá seu getter e setter
+    var fala: String = "eii"
+        get() {
+            println("Sou o getter de $field")
+            return field // field está referenciando o atributo `fala`
+        }
+        set(value) {
+            println("Sou setter de $field")
+            field = value
+        }
 }
-
 fun main() {
-    val pessoa: Pessoa = Pessoa("Samuel", 2004, "cpf")
+    val animal = Animal("cachorro")
 
-    println(pessoa.toString()) // igual Java
+    /*
+    * Toda vez que ´fala´ é acessado, o get() de fala é chamado
+    * Por isso é usado `field` dentro da classe para se referenciar ao atributo
+    * Sem isso teria recursividade infinita
+    */
+    println(animal.fala)
+
+    animal.fala = "auau"
 }
