@@ -1,26 +1,19 @@
-class Pessoa(var nome: String, var anoDeNascimento: Int) {
-    fun comer() {}
+class Receita {
+    lateinit var instrucoes: String // só será alocada na memoria quando for inicializada
 
-    fun falar() {}
+    fun gerarReceita() {
+        instrucoes = "Lave as mãos."
+    }
 
-    fun dormir() {}
-
-    fun correr() {}
+    fun imprimeReceita() {
+        if(!this::instrucoes.isInitialized) {
+            instrucoes = "Lave as mãos."
+        }
+    }
 }
 fun main() {
-    val p = Pessoa("samuel", 1985)
+    val r = Receita()
 
-    p.comer()
-    p.falar()
-    p.dormir()
-    p.correr()
-
-    // Os dois são equivalentes
-    with(p) {
-        comer()
-        falar()
-        dormir()
-        correr()
-        println(this.nome) // "samuel"
-    }
+    r.imprimeReceita()
+    println(r.instrucoes)
 }
