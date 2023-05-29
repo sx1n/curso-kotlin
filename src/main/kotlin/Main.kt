@@ -1,19 +1,16 @@
-class Receita {
-    lateinit var instrucoes: String // só será alocada na memoria quando for inicializada
+open class Eletronico(var marca: String) {
+    fun ligar() {}
+    fun desligar() {}
+}
 
-    fun gerarReceita() {
-        instrucoes = "Lave as mãos."
-    }
-
-    fun imprimeReceita() {
-        if(!this::instrucoes.isInitialized) {
-            instrucoes = "Lave as mãos."
-        }
-    }
+class Computador(marca: String) : Eletronico(marca) {
+    fun instalarSoftware() {}
+    fun processar() {}
 }
 fun main() {
-    val r = Receita()
+    val c = Computador("a")
 
-    r.imprimeReceita()
-    println(r.instrucoes)
+    c.ligar()
+    c.instalarSoftware()
+    c.processar()
 }
