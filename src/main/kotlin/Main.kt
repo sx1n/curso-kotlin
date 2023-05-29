@@ -1,24 +1,14 @@
-class Animal(var especie: String) {
-    // Cada Atributo terá seu getter e setter
-    var fala: String = "eii"
-        get() {
-            println("Sou o getter de $field")
-            return field // field está referenciando o atributo `fala`
+enum class Prioridade(val value: Int) {
+    Baixa(1) {
+        override fun toString(): String {
+            return "Prioridade baixa: $value"
         }
-        set(value) {
-            println("Sou setter de $field")
-            field = value
-        }
+    },
+    Media(5), Alta(10)
 }
+
 fun main() {
-    val animal = Animal("cachorro")
-
-    /*
-    * Toda vez que ´fala´ é acessado, o get() de fala é chamado
-    * Por isso é usado `field` dentro da classe para se referenciar ao atributo
-    * Sem isso teria recursividade infinita
-    */
-    println(animal.fala)
-
-    animal.fala = "auau"
+    for (prioridade in Prioridade.values()) {
+        println("${prioridade}:${prioridade.value}")
+    }
 }
