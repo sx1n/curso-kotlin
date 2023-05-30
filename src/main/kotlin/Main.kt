@@ -1,25 +1,21 @@
-interface Funcionario {
-    var salario: Float
-    fun bonus(): Float
+interface Event {
+    fun onSuccess()
 }
 
-class Gerente(override var salario: Float) : Funcionario {
-    override fun bonus(): Float {
-        return salario * 0.5f
+class Programa {
+    fun salvar(e: Event) {
+        println("Abrindo conexões")
+        println("Salvando valores")
+        println("Sucesso. Conexões fechadas.")
+        e.onSuccess()
     }
-}
-
-class Analista(override var salario: Float) : Funcionario {
-    override fun bonus(): Float {
-        return salario * 0.3f
-    }
-}
-
-fun mostraBonus(funcionario: Funcionario) {
-    println(funcionario.bonus())
 }
 
 fun main() {
-    mostraBonus(Gerente(10000f))
-    mostraBonus(Analista(10000f))
+    val p = Programa()
+    p.salvar(object : Event {
+        override fun onSuccess() {
+            println("onSucess")
+        }
+    })
 }
