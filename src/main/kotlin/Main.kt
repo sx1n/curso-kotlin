@@ -1,5 +1,11 @@
-open class Eletronico(var marca: String) {
-    fun ligar() {}
+private class X
+
+// para habilitar a herança a classe pai deve ser `open`
+open class Eletronico(private var marca: String) {
+    private fun ativarCorrente() {} // public, protected e private são a mesma coisa do Java
+    fun ligar() {
+        ativarCorrente()
+    }
     fun desligar() {}
 }
 
@@ -13,4 +19,5 @@ fun main() {
     c.ligar()
     c.instalarSoftware()
     c.processar()
+    c.desligar()
 }
