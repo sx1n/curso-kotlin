@@ -1,31 +1,25 @@
-interface Selvagem {
-    fun atacar() {
-        println("ataque")
-    }
-}
-abstract class Mamifero(val nome: String) {
-    fun acordar() {
-        println("Acordei.")
-    }
-    fun dormir() {
-        println("dormi")
-    }
-
-    abstract fun falar()
+interface Funcionario {
+    var salario: Float
+    fun bonus(): Float
 }
 
-class Cachorro(nome: String) : Mamifero(nome), Selvagem {
-    override fun falar() {
-
-    }
-
-    override fun atacar() {
-        println("ataque de cachorro auau")
+class Gerente(override var salario: Float) : Funcionario {
+    override fun bonus(): Float {
+        return salario * 0.5f
     }
 }
 
+class Analista(override var salario: Float) : Funcionario {
+    override fun bonus(): Float {
+        return salario * 0.3f
+    }
+}
 
+fun mostraBonus(funcionario: Funcionario) {
+    println(funcionario.bonus())
+}
 
 fun main() {
-    val m = Cachorro("Joao").atacar()
+    mostraBonus(Gerente(10000f))
+    mostraBonus(Analista(10000f))
 }
