@@ -1,23 +1,33 @@
-private class X
-
-// para habilitar a herança a classe pai deve ser `open`
 open class Eletronico(private var marca: String) {
-    private fun ativarCorrente() {} // public, protected e private são a mesma coisa do Java
+    private fun corrente(ativo: Boolean) {}
     fun ligar() {
-        ativarCorrente()
+        corrente(true)
     }
-    fun desligar() {}
+    // ´open` também permite que a função da classe pai seja sobrescrita na classe filha, override
+    open fun desligar() {
+        corrente(false)
+    }
 }
 
 class Computador(marca: String) : Eletronico(marca) {
-    fun instalarSoftware() {}
-    fun processar() {}
+    fun save() {}
+
+    override fun desligar() {
+        save()
+        super.desligar() // chama o desligar da classe pai
+    }
+
+
+    // sobrecarga, Overload
+    fun save(a: String) {}
+    fun save(a: Int) {}
+    fun save(a: Double) {}
+    fun save(a: Float) {}
+
 }
 fun main() {
     val c = Computador("a")
 
     c.ligar()
-    c.instalarSoftware()
-    c.processar()
     c.desligar()
 }
