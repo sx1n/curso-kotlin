@@ -34,10 +34,8 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 fun main() {
     val data = geraDados()
 
-    println("Primeira Receita: ${data.first()}") // se a lista for nula será lançada uma exception
-    println("Ultima receita: ${data.last()}") // se a lista for nula será lançada uma exception
-
-    println("Primeira Receita: ${data.firstOrNull()}")
-    println("Ultima receita: ${data.lastOrNull()}")
+    println(listOf(1, 1, 3, 6).sum()) // soma
+    println(data.sumOf { it.calorias }) // aqui essa função recebe um predicado
+    // o predicado é uma condição passada para outra como argumento
 
 }
