@@ -39,10 +39,7 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 fun main() {
     val data = geraDados()
 
-
-    // Lembrando que o map apenas retorna um Array modificado, mas sem reduzir o seu tamanho original
-    // Ou seja ele apenas altera a informação, mas não deleta
-    // Um Array com 6 indices jamais poderia ser retornado como 2 em um map
-    println(data.map { it.nome + " oi" })
+    println(listOf(1, 2, 3).average())
+    println(data.map { it.calorias }.average())
 
 }
