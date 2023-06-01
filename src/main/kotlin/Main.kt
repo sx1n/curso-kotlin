@@ -28,22 +28,21 @@ fun geraDados(): List<Receita> {
     )
 }
 
-data class Receita(val nome: String, val calorias: Int, val ingredientes: List<Ingrediente> = listOf())
+data class Receita(
+    val nome: String,
+    val calorias: Int,
+    val ingredientes: List<Ingrediente> = listOf()
+)
+
 data class Ingrediente(val nome: String, val quantidade: Int)
 
 fun main() {
     val data = geraDados()
 
-    println(data.maxOf { it.calorias })
-    println(data.minOf { it.calorias })
 
-    listOf(1, 4, 9).maxOf { it }
-    listOf(1, 4, 9).maxOrNull()
-
-    listOf(1, 4, 9).minOf { it }
-    listOf(1, 4, 9).minOrNull()
-
-    println(data.maxByOrNull { it.calorias })
-    println(data.maxOf { it.calorias })
+    // Lembrando que o map apenas retorna um Array modificado, mas sem reduzir o seu tamanho original
+    // Ou seja ele apenas altera a informação, mas não deleta
+    // Um Array com 6 indices jamais poderia ser retornado como 2 em um map
+    println(data.map { it.nome + " oi" })
 
 }
