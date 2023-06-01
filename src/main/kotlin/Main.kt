@@ -34,5 +34,16 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 fun main() {
     val data = geraDados()
 
-    data.forEach { println(it.nome) }
+    println(data.maxOf { it.calorias })
+    println(data.minOf { it.calorias })
+
+    listOf(1, 4, 9).maxOf { it }
+    listOf(1, 4, 9).maxOrNull()
+
+    listOf(1, 4, 9).minOf { it }
+    listOf(1, 4, 9).minOrNull()
+
+    println(data.maxByOrNull { it.calorias })
+    println(data.maxOf { it.calorias })
+
 }
