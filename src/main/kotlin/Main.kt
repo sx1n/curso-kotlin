@@ -34,6 +34,10 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 fun main() {
     val data = geraDados()
 
-    println("Tenho dados? ${if (data.any()) "Sim" else "Não"}") // verifica se há algum elemento
-    println("Tenho ${data.count()} elementos") // retorna a quantidade de elementos
+    println("Primeira Receita: ${data.first()}") // se a lista for nula será lançada uma exception
+    println("Ultima receita: ${data.last()}") // se a lista for nula será lançada uma exception
+
+    println("Primeira Receita: ${data.firstOrNull()}")
+    println("Ultima receita: ${data.lastOrNull()}")
+
 }
