@@ -39,7 +39,12 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 fun main() {
     val data = geraDados()
 
-    println(listOf(1, 2, 3).average())
-    println(data.map { it.calorias }.average())
+    val lst = listOf(1, 2, 3, 4, 4, 4, 5, 8, 8, 9)
+
+    println(lst)
+    println(lst.distinct()) // Não repete os valores
+    println(lst.sorted()) // ordena
+    println(lst.sortedDescending()) // ordena de forma decrescente
+    println(lst.reversed()) // inverte o Array
 
 }
