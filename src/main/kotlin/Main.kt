@@ -33,9 +33,6 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 
 fun main() {
     val data = geraDados()
-
-    println(listOf(1, 1, 3, 6).sum()) // soma
-    println(data.sumOf { it.calorias }) // aqui essa função recebe um predicado
-    // o predicado é uma condição passada para outra como argumento
-
+    println(data.filter { it.nome == "Lasanha" }) // retorna apenas quem atender a condição
+    println(data.any { it.nome == "Lasanha" }) // retorna true se alguem atender a condição
 }
