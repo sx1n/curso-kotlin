@@ -33,6 +33,6 @@ data class Ingrediente(val nome: String, val quantidade: Int)
 
 fun main() {
     val data = geraDados()
-    println(data.filter { it.nome == "Lasanha" }) // retorna apenas quem atender a condição
-    println(data.any { it.nome == "Lasanha" }) // retorna true se alguem atender a condição
+    println(data.take(2)) // retorna os 2 primeiros Arrays
+    println(data.takeLast(2)) // retorna os 2 ultimos Arrays
 }
